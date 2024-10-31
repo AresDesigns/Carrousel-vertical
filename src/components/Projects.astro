@@ -1,0 +1,213 @@
+---
+import GitHub from "./icons/GH.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+}
+const PROJECTS = [
+  {
+    id:0,
+    title: "SVGL - A beautiful library with SVG logos",
+    description:
+      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://svgl.vercel.app/",
+    github: "https://github.com/pheralb/svgl",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    id:1,
+    title: "Quirium - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/quirium (1).webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  }, 
+  {
+    id:2,
+    title: "Ares designs - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/blog1.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  }, {
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },{
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },{
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },{
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },{
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },{
+    id:3,
+    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    description:
+      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+]
+---
+
+
+
+
+  <div id="gallery" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative  max-md:h-[42rem] max-sm:h-[40rem] max-[500px]:h-[36rem] md:h-[43rem]  overflow-hidden rounded-lg lg:h-[23rem]">
+         <!-- Item 1 -->
+  {
+    PROJECTS.map(({image, title, description, tags, link, github }) => (
+    
+<div class="hidden duration-6000  z-[1] linear" data-carousel-item>
+
+    <article class="flex flex-col space-x-0 space-y-8 group lg:flex-row lg:space-x-8 lg:space-y-0 bg-[#121212]">
+  <div class="w-full lg:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl lg:group-hover:-translate-y-1 lg:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 max-lg:h-full lg:scale-110 lg:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full lg:w-1/2 lg:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title} 
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+</div>
+    
+    ))
+  } 
+</div>
+
+
+
+<div class="flex justify-center items-center">
+
+
+  <!-- Slider controls -->
+  <button type="button" class="z-6 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+        </svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+
+   <!-- Slider indicators -->
+   <div class=" z-6 flex  justify-center items-center space-x-3 rtl:space-x-reverse">
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 6" data-carousel-slide-to="4"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 7" data-carousel-slide-to="5"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 8" data-carousel-slide-to="6"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 9" data-carousel-slide-to="7"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 10" data-carousel-slide-to="8"></button>
+    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 11" data-carousel-slide-to="9"></button>
+
+</div>
+
+  <button type="button" class=" z-6 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+      </span>
+  </button>
+
+</div>
+
+ 
+</div>

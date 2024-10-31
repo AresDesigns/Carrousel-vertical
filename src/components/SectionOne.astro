@@ -1,0 +1,47 @@
+---
+import SocialPill from '../components/SocialPill.astro';
+import Linkedin from '../components/icons/Linkedin.astro';
+import Mail from '../components/icons/Mail.astro';
+import Badge from '../components/Badge.astro';
+import Back from "../images/gradient.astro";
+---
+
+<div>
+<Back/>
+
+</div>
+<div class="max-w-full">
+    <div class="flex gap-4 justify-center items-center mb-4">
+
+		
+<a class="flex justify-center items-center mb-4 "
+					href="https://linkedin.com/"
+					target="_blank"
+					rel="noopener"
+				>
+					<Badge>Disponible para trabajar</Badge>
+				</a>
+</div>
+
+			
+<h1 class="justify-center items-center flex mb-4 text-4xl font-extrabold leading-none tracking-tight
+ text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><span class="text-blue-600 dark:text-blue-500">Hola, </span>&nbsp Soy Sergio.</h1>
+			<h2 class="text-xl opacity-70 text-center">
+				<span>+5 años de experiencia en el desarrollo de aplicaciones multiplataforma y dessarrollo web.</span><br>
+				<span>Me encanta crear contenido contribuyendo con la comunidad.</span><br>	
+				<span>De Zaragoza, España.</span>
+			</h2>
+			
+			<nav class="flex justify-center items-center gap-4 mt-8 flex-wrap">
+				
+             
+				<SocialPill href="">
+					<Linkedin class="w-6 h-6"/>
+					Linkedin
+				</SocialPill>
+				<SocialPill href="mailto:sergio45297@hotmail.es">
+					<Mail class="w-6 h-6"/>
+					Correo
+				</SocialPill>
+			</nav>
+</div>            

@@ -1,0 +1,90 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { ViewTransitions } from "astro:transitions"
+
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const {description, title } = Astro.props;
+---
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>    
+		<ViewTransitions />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+		<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+	</head>
+	<body class="">		
+		<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+		 <div class="absolute z-[-1] bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
+			<div class="absolute top-0 z-[-2] opacity-10 h-screen w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		</div> 
+		<Header/>
+		<slot />		
+
+		<Footer/><script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+	</body>
+</html>
+
+
+<!-- Estilos grobales de astro -->
+
+<style is:global>
+	:root{
+		color-scheme:light dark;
+	}
+
+	html {
+		font-family: 'SUSE',system-ui, sans-serif;
+		font-optical-sizing: auto;
+		font-weight: <weight>;
+		font-style: normal;        
+		scroll-behavior: smooth;
+	}
+
+	
+
+	body{
+		display: flex;
+		justify-content: center;	
+		flex-direction: column;	
+		min-height: 100vh;
+		overscroll-behavior: none;
+		background-color: #121212;
+	}
+	@media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+	/* <uniquifier>: Use a unique and descriptive class name
+	 <weight>: Use a value from 100 to 800*/
+	/*
+	.suse-font> {
+	font-family: "SUSE", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: <weight>;
+	font-style: normal;
+	}*/
+	
+
+	
+</style>
