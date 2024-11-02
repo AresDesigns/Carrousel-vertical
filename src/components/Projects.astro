@@ -1,9 +1,11 @@
 ---
 import GitHub from "./icons/GH.astro"
-import NextJS from "./icons/NextJS.astro"
+import NextJS from "./icons/NJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import Java from "./icons/Java.astro"
+
 
 const TAGS = {
   NEXT: {
@@ -12,6 +14,21 @@ const TAGS = {
     icon: NextJS,
   },
   TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-[#ffffff] text-black",
+    icon: Java,
+  },
+  ANDROID: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  FLUTTER: {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
@@ -44,7 +61,7 @@ const PROJECTS = [
       "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
     link: "https://adventjs.dev",
     image: "/projects/blog1.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.JAVA, TAGS.TAILWIND],
   },
   {
     id:3,
