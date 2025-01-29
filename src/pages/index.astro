@@ -2,47 +2,54 @@
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from "../components/SectionContainer.astro";
 import TitleSection from "../components/TitleSection.astro";
-import Briefcase from "../components/icons/Briefcase.astro"
-import AboutMe from "../components/AboutMe.astro"
 import CodeIcon from "../components/icons/Code.astro"
-import Experience from "../components/Experience.astro"
-import ProfileCheck from "../components/icons/ProfileCheck.astro"
-import SectionOne from "../components/SectionOne.astro";
 import Carrousel from "../components/Carrousel.astro";
+import Carrousel1 from '../components/Projects_vertical.astro';
 
+//borrar todo menos proyects y crear el slider vertical primero crer este y 
+// luego crear copiando el original para adaptarlo en movil y que sea solo uno
 ---
 
 <Layout title="Porfolio de sergio - Desarrollador y Programador Web con 5 años de experiencia"
 	description='fdfd'
 >
 	<main class="w-full ">
-
-		<SectionContainer id="inicio" class="pt-72 max-lg:pt-60 max-lg:pb-40 pb-80">
-		<SectionOne class="w-full">
-		</slot></SectionOne>
-		</SectionContainer>
-
-	
-		
-		<div class="px-4 space-y-24">
-
-			
-			<SectionContainer id="experiencia">
-				<TitleSection>
-				  <Briefcase class="size-7" />
-				  Experiencia
-				</TitleSection>
-				<Experience />
-			  </SectionContainer>
-			
+			<div class="px-4 space-y-24 pt-64 max-lg:pt-60 max-lg:pb-40">
 			  <SectionContainer id="proyectos">
 				<TitleSection>
 				  <CodeIcon class="size-7" />
-				  Proyectos
+				  CARROUSEL HORIZONTAL
 				</TitleSection>
+				<hr class="mb-16">
 				<Carrousel/>
 			  </SectionContainer>
 			  
+			  <SectionContainer id="proyectos">
+				<TitleSection>
+				  <CodeIcon class="size-7" />
+				  CARROUSEL VERTICAL
+				</TitleSection>
+				<hr class="mb-16">
+				<Carrousel1/>
+			  </SectionContainer>
+			  
+			  <SectionContainer id="proyectos">
+				<TitleSection>
+				  <CodeIcon class="size-7" />
+				  CARROUSEL HORIZONTAL A VERTICAL
+				</TitleSection>
+				<hr class="mb-16">
+				<Carrousel/>
+			  </SectionContainer>
+			  
+			  <SectionContainer id="proyectos">
+				<TitleSection>
+				  <CodeIcon class="size-7" />
+				  CARROUSEL VERTICAL A HORIZONTAL
+				</TitleSection>
+				<hr class="mb-16">
+				<Carrousel/>
+			  </SectionContainer>
 
 			<!-- <SectionContainer id="proyectos">
 			  <TitleSection>
@@ -52,14 +59,8 @@ import Carrousel from "../components/Carrousel.astro";
 			  <Projects />
 			</SectionContainer> -->
 		
-			<SectionContainer id="sobre-mi">
-			  <TitleSection>
-				<ProfileCheck class="size-8" />
-				Sobre mí
-			  </TitleSection>
-			  <AboutMe />
-			</SectionContainer>
 		</div>
+	
 	</main>
 </Layout>
 
