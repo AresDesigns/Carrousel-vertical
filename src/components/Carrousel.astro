@@ -1,6 +1,162 @@
----
 
-import PROJECTS from '../components/Projects.astro';
+  <style>
+    .slider-container {
+      width: 100%;
+      max-width: 600px; /* Ajusta el ancho según tus necesidades */
+      height: 300px; /* Ajusta la altura según tus necesidades */
+      margin: auto;
+      overflow: hidden;
+    }
+    .slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      height: 100%; /* Ajusta el alto según el número de elementos */
+    }
+    .slider-card {
+      height: 33.3333%; /* 100% dividido por 3 elementos */
+      display: none; /* Inicialmente ocultamos todas las tarjetas */
+    }
+    .slider-card.active {
+      display: block; /* Mostramos solo las tarjetas activas */
+    }
+  
+    .pagination {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      right: 10px;
+      top: 50px;
+      bottom: 50px;
+      justify-content: space-around;
+    }
+   
+    .control-button {
+      position: absolute;
+      right: 10px;
+      background-color: gray;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .control-button svg {
+      width: 20px;
+      height: 20px;}
+    
+  </style>
 
----
-<PROJECTS/>
+  <div class="slider-container overflow-hidden relative">
+    <div class="slider-wrapper">
+      <div class="slider-card bg-blue-500 text-white p-4 rounded-lg shadow-lg">Card 1</div>
+      <div class="slider-card bg-green-500 text-white p-4 rounded-lg shadow-lg">Card 2</div>
+      <div class="slider-card bg-red-500 text-white p-4 rounded-lg shadow-lg">Card 3</div>
+      <div class="slider-card bg-yellow-500 text-white p-4 rounded-lg shadow-lg">Card 4</div>
+      <div class="slider-card bg-purple-500 text-white p-4 rounded-lg shadow-lg">Card 5</div>
+      <div class="slider-card bg-pink-500 text-white p-4 rounded-lg shadow-lg">Card 6</div>
+      <div class="slider-card bg-indigo-500 text-white p-4 rounded-lg shadow-lg">Card 7</div>
+      <div class="slider-card bg-teal-500 text-white p-4 rounded-lg shadow-lg">Card 8</div>
+      <div class="slider-card bg-orange-500 text-white p-4 rounded-lg shadow-lg">Card 9</div>
+      <div class="slider-card bg-blue-500 text-white p-4 rounded-lg shadow-lg">Card 10</div>
+      <div class="slider-card bg-green-500 text-white p-4 rounded-lg shadow-lg">Card 12</div>
+      <div class="slider-card bg-red-500 text-white p-4 rounded-lg shadow-lg">Card 13</div>
+      <div class="slider-card bg-yellow-500 text-white p-4 rounded-lg shadow-lg">Card 14</div>
+      <div class="slider-card bg-purple-500 text-white p-4 rounded-lg shadow-lg">Card 15</div>
+      <div class="slider-card bg-pink-500 text-white p-4 rounded-lg shadow-lg">Card 16</div>
+      <div class="slider-card bg-indigo-500 text-white p-4 rounded-lg shadow-lg">Card 17</div>
+      <div class="slider-card bg-teal-500 text-white p-4 rounded-lg shadow-lg">Card 18</div>
+      <div class="slider-card bg-orange-500 text-white p-4 rounded-lg shadow-lg">Card 19</div>
+      <div class="slider-card bg-orange-500 text-white p-4 rounded-lg shadow-lg">Card 19</div>
+
+      <!-- Añade más cards aquí -->
+   
+    <button class="prev-button control-button" style="top: 10px;">
+      <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-8.293l3.707 3.707-1.414 1.414L10 11.414 6.707 14.707 5.293 13.293 9 9.586V5h2v4.586z" clip-rule="evenodd"></path></svg>
+    </button>
+    <div class="pagination">
+        <!-- Los botones de paginación se generarán dinámicamente -->
+      </div>
+    <button class="next-button control-button" style="bottom: 10px;">
+      <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8.293L5.293 6l1.414-1.414L10 8.586 13.293 5.293 14.707 6.707 11 10.414V15H9v-4.586z" clip-rule="evenodd"></path></svg>
+    </button>
+  
+  </div>
+
+  <script>
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const paginationContainer = document.querySelector('.pagination');
+    let currentIndex = 0;
+    const itemsPerPage = 3; // Número de elementos por página
+    const totalPages = Math.ceil((sliderWrapper.children.length / itemsPerPage)-1);
+
+    function updateSliderPosition() {
+  const cards = document.querySelectorAll('.slider-card');
+  cards.forEach((card, index) => {
+    card.classList.remove('active');
+    if (index >= currentIndex * itemsPerPage && index < (currentIndex + 1) * itemsPerPage) {
+      card.classList.add('active');
+    }
+  });
+
+      const paginationButtons = document.querySelectorAll('.pagination button');
+      paginationButtons.forEach((button, index) => {
+        button.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    nextButton.addEventListener('click', () => {
+  if (currentIndex < totalPages - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  updateSliderPosition();
+  updateActiveButton();
+});
+
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalPages - 1;
+  }
+  updateSliderPosition();
+  updateActiveButton();
+});
+
+    function createPagination() {
+        for (let i = 0; i < totalPages; i++) {
+    const button = document.createElement('button');
+    button.className = 'w-3 h-3 z-10 bg-white rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
+    button.addEventListener('click', () => {
+      currentIndex = i;
+      updateSliderPosition();
+      updateActiveButton();
+    });
+    paginationContainer.appendChild(button);
+  }
+  updateActiveButton();
+}
+
+
+function updateActiveButton() {
+  const buttons = paginationContainer.querySelectorAll('button');
+  buttons.forEach((button, index) => {
+    if (index === currentIndex) {
+      button.classList.add('bg-blue-500');
+      button.classList.remove('bg-white');
+    } else {
+      button.classList.remove('bg-blue-500');
+      button.classList.add('bg-white');
+    }
+  });
+}
+
+    // Inicializamos la posición del slider y creamos la paginación
+    updateSliderPosition();
+    createPagination();
+  </script>
