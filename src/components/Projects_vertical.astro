@@ -9,23 +9,23 @@ import { PROJECTS, TAGS } from './Projects.astro';
 ---
 <style>
    
-    .slider-card {
+    .slider-card-v1 {
       height: 33.3333%; /* 100% dividido por 3 elementos */
       display: none; /* Inicialmente ocultamos todas las tarjetas */
     }
-    .slider-card.active {
+    .slider-card-v1.active {
       display: block; /* Mostramos solo las tarjetas activas */
     }
-    .slider-wrapper {
+    .slider-wrapper-v1 {
     transition: transform 0.5s ease-in-out; /* Transición suave */
   }
-    .pagination {
+    .pagination-v1 {
     display: flex;
     justify-content: center;
     margin-top: 10px;
   }
 
-  .control-button {
+  .control-button-v1 {
     background-color: gray;
     color: white;
     border: none;
@@ -35,16 +35,16 @@ import { PROJECTS, TAGS } from './Projects.astro';
     margin: 0 5px;
   }
 
-  .control-button:hover{
+  .control-button-v1:hover{
     background-color: #444444;
   }
 
-  .control-button svg {
+  .control-button-v1 svg {
     width: 20px;
     height: 20px;
   }
 
-  .controls {
+  .controls-v1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,10 +54,10 @@ import { PROJECTS, TAGS } from './Projects.astro';
   </style>
 
 
-<div class="slider-container overflow-hidden relative">
-    <div class="slider-wrapper flex flex-col">
+<div class="slider-container-v1 overflow-hidden relative">
+    <div class="slider-wrapper-v1 flex flex-col">
     {PROJECTS.map((project) => (
-      <div class="slider-card w-full p-4">
+      <div class="slider-card-v1 w-full p-4">
         <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
           <div class="w-full md:w-1/2">
             <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -96,8 +96,8 @@ import { PROJECTS, TAGS } from './Projects.astro';
       </div>
     ))}
     </div>
-    <div class="controls">
-        <button class="prev-button control-button">
+    <div class="controls-v1">
+        <button class="prev-button-v1 control-button-v1">
             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
@@ -105,10 +105,10 @@ import { PROJECTS, TAGS } from './Projects.astro';
                 <span class="sr-only">Previous</span>
             </span>
         </button>
-        <div class="pagination">
+        <div class="pagination-v1">
           <!-- Los botones de paginación se generarán dinámicamente -->
         </div>
-        <button class="next-button control-button">
+        <button class="next-button-v1 control-button-v1">
             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
@@ -118,82 +118,15 @@ import { PROJECTS, TAGS } from './Projects.astro';
       </div>
     </div>
 
-  
- 
-
     <script>
-        const nextButton = document.querySelector('.next-button');
-        const prevButton = document.querySelector('.prev-button');
-        const paginationContainer = document.querySelector('.pagination');
-        const sliderWrapper = document.querySelector('.slider-wrapper');
-        let currentIndex = 0;
-        const itemsPerPage = 2; // Número de elementos por página
-        const totalPages = Math.ceil(sliderWrapper.children.length / itemsPerPage);
-      
-        function updateSliderPosition() {
-          const cards = document.querySelectorAll('.slider-card');
-          cards.forEach((card, index) => {
-            card.classList.remove('active');
-            if (index >= currentIndex * itemsPerPage && index < (currentIndex + 1) * itemsPerPage) {
-              card.classList.add('active');
-            }
-          });
-      
-          const paginationButtons = document.querySelectorAll('.pagination button');
-          paginationButtons.forEach((button, index) => {
-            button.classList.toggle('active', index === currentIndex);
-          });
-          
-        }
-      
-        function createPagination() {
-          for (let i = 0; i < totalPages; i++) {
-            const button = document.createElement('button');
-            button.className = 'w-3 h-3 z-10 bg-[#898989] rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
-            button.addEventListener('click', () => {
-              currentIndex = i;
-              updateSliderPosition();
-              updateActiveButton();
-            });
-            paginationContainer.appendChild(button);
-          }
-          updateActiveButton();
-        }
-      
-        function updateActiveButton() {
-          const buttons = paginationContainer.querySelectorAll('button');
-          buttons.forEach((button, index) => {
-            if (index === currentIndex) {
-              button.classList.add('bg-blue-500');
-              button.classList.remove('bg-[#898989]');
-            } else {
-              button.classList.remove('bg-blue-500');
-              button.classList.add('bg-[#898989]');
-            }
-          });
-        }
-      
-        nextButton.addEventListener('click', () => {
-          if (currentIndex < totalPages - 1) {
-            currentIndex++;
-          } else {
-            currentIndex = 0;
-          }
-          updateSliderPosition();
-          updateActiveButton();
-        });
-      
-        prevButton.addEventListener('click', () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-          } else {
-            currentIndex = totalPages - 1;
-          }
-          updateSliderPosition();
-          updateActiveButton();
-        });
-      
-        // Inicializamos la posición del slider y creamos la paginación
-        updateSliderPosition();
-        createPagination();
-      </script>
+      import { initializeSlider } from './js/sliderLogicV3.js';
+    (function() {
+      document.addEventListener('DOMContentLoaded', () => {
+        const sliderContainer = 'slider-vertical-v1';
+        const nextButton = document.querySelector('.next-button-v1');
+        const prevButton = document.querySelector('.prev-button-v1');
+        const paginationContainer = document.querySelector('.pagination-v1');
+        const sliderWrapper = document.querySelector('.slider-wrapper-v1');
+        initializeSlider(nextButton, prevButton, paginationContainer, sliderWrapper, 1,1);
+      });})();
+    </script>

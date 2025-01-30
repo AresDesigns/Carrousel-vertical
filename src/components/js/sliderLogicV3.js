@@ -1,11 +1,11 @@
-export function initializeSlider(nextButton, prevButton, paginationContainer, sliderWrapper, itemsPerPage) {
+export function initializeSlider(nextButton, prevButton, paginationContainer, sliderWrapper, itemsPerPage,idSlider) {
   let currentIndex = 0;
   const totalPages = Math.ceil(sliderWrapper.children.length / itemsPerPage);
   
   
   
   function updateSliderPosition() {
-    const cards = sliderWrapper.querySelectorAll('.slider-card-v2');
+    const cards = sliderWrapper.querySelectorAll('.slider-card-v' + idSlider+'');
     cards.forEach((card, index) => {
       card.classList.remove('active');
       if (index >= currentIndex * itemsPerPage && index < (currentIndex + 1) * itemsPerPage) {
@@ -23,7 +23,7 @@ export function initializeSlider(nextButton, prevButton, paginationContainer, sl
   function createPagination() {
     for (let i = 0; i < totalPages; i++) {
       const button = document.createElement('button');
-      button.className = 'button-v2 w-3 h-3 z-10 bg-white rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
+      button.className = 'button-v'+ idSlider+' w-3 h-3 z-10 bg-white rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
       button.addEventListener('click', () => {
         currentIndex = i;
         updateSliderPosition();
@@ -37,7 +37,7 @@ export function initializeSlider(nextButton, prevButton, paginationContainer, sl
   function updateActiveButton() {
     const buttons = paginationContainer.querySelectorAll('button');
     buttons.forEach((button, index) => {
-      if (index === currentIndex) {
+      if (index === currentIndex ) {
         button.classList.add('bg-blue-500');
         button.classList.remove('bg-white');
       } else {

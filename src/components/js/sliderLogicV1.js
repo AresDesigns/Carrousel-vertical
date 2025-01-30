@@ -5,7 +5,7 @@ export function initializeSlider(nextButton, prevButton, paginationContainer, sl
   
   
   function updateSliderPosition() {
-    const cards = sliderWrapper.querySelectorAll('.slider-card-v2');
+    const cards = sliderWrapper.querySelectorAll('.slider-card');
     cards.forEach((card, index) => {
       card.classList.remove('active');
       if (index >= currentIndex * itemsPerPage && index < (currentIndex + 1) * itemsPerPage) {
@@ -23,7 +23,7 @@ export function initializeSlider(nextButton, prevButton, paginationContainer, sl
   function createPagination() {
     for (let i = 0; i < totalPages; i++) {
       const button = document.createElement('button');
-      button.className = 'button-v2 w-3 h-3 z-10 bg-white rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
+      button.className = 'w-3 h-3 z-10 bg-white rounded-full m-1 cursor-pointer hover:bg-gray-300 active:bg-blue-500';
       button.addEventListener('click', () => {
         currentIndex = i;
         updateSliderPosition();
