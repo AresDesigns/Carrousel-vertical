@@ -4,8 +4,10 @@ import SectionContainer from "../components/SectionContainer.astro";
 import TitleSection from "../components/TitleSection.astro";
 import CodeIcon from "../components/icons/Code.astro"
 import Carrousel from "../components/Projects.astro";
-import Carrouu from "../components/Carrousel.astro";
-import Carrousel1 from '../components/Projects_vertical.astro';
+import P_horizontal from "../components/Projects_horizontal.astro";
+import P_vertical from '../components/Projects_vertical.astro';
+import P_verticalv2 from '../components/Projects_vertical_v2.astro';
+import P_verticalv3 from '../components/Projects_vertical_v3.astro';
 
 //borrar todo menos proyects y crear el slider vertical primero crer este y 
 // luego crear copiando el original para adaptarlo en movil y que sea solo uno
@@ -22,36 +24,22 @@ import Carrousel1 from '../components/Projects_vertical.astro';
 				  CARROUSEL HORIZONTAL
 				</TitleSection>
 				<hr class="mb-16">
-				<Carrousel/>
+				<P_horizontal/>
 			  </SectionContainer>
 			  
-			  <SectionContainer id="proyectos">
-				<TitleSection>
-				  <CodeIcon class="size-7" />
-				  CARROUSEL VERTICAL
-				</TitleSection>
-				<hr class="mb-16">
-				<Carrousel1/>
-			  </SectionContainer>
-			  
-			  <SectionContainer id="proyectos">
-				<TitleSection>
-				  <CodeIcon class="size-7" />
-				  CARROUSEL HORIZONTAL A VERTICAL
-				</TitleSection>
-				<hr class="mb-16">
-				<Carrouu/>
-			  </SectionContainer>
-			  
-			  <SectionContainer id="proyectos">
-				<TitleSection>
-				  <CodeIcon class="size-7" />
-				  CARROUSEL VERTICAL A HORIZONTAL
-				</TitleSection>
-				<hr class="mb-16">
-				<Carrousel/>
-			  </SectionContainer>
+	
 
+          <SectionContainer id="proyectos">
+                <TitleSection>
+                    <CodeIcon class="size-7" />
+                    CARROUSEL VERTICAL V2
+                </TitleSection>
+                <hr class="mb-16">
+				<P_vertical/>
+            </SectionContainer>
+		
+	
+		
 			<!-- <SectionContainer id="proyectos">
 			  <TitleSection>
 				<CodeIcon class="size-7" />
