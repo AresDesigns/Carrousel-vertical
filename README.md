@@ -1,4 +1,4 @@
-# 👨🏻‍💻 Porfolio para programadores y desarrolladores
+# 👨🏻‍💻 Carrouseles diseños, pruebas...
 
 <div align="center">
 <img src="./public/portada.webp">
