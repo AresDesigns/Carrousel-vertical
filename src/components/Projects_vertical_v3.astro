@@ -1,76 +1,39 @@
 ---
-import GitHub from "./icons/GH.astro"
-import NextJS from "./icons/NJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import Link from "./icons/Link.astro"
+import { PROJECTS } from "./Projects.astro";
 import LinkButton from "./LinkButton.astro"
-import Java from "./icons/Java.astro"
-import { PROJECTS, TAGS } from './Projects.astro';
+import GitHub from "./icons/GH.astro"
+
 ---
-<style>
-   
-    .slider-card-v3 {
-      height: 33.3333%; /* 100% dividido por 3 elementos */
-      display: none; /* Inicialmente ocultamos todas las tarjetas */
-    }
-    .slider-card-v3.active {
-      display: block; /* Mostramos solo las tarjetas activas */
-    }
-    .slider-wrapper-v3 {
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-      }
-    .pagination-v3 {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
+<section class="px-4 ">
+  <div class="max-w-lg mx-auto relative">
 
-  .control-button-v3 {
-    background-color: gray;
-    color: white;
-    border: none;
-    padding: 2px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 0 5px;
-  }
+      <input id="article-01" type="radio" name="slider" class="sr-only peer/01">
+      <input id="article-02" type="radio" name="slider" class="sr-only peer/02">
+      <input id="article-03" type="radio" name="slider" class="sr-only peer/03" checked>
+      <input id="article-04" type="radio" name="slider" class="sr-only peer/04">
+      <input id="article-05" type="radio" name="slider" class="sr-only peer/05">
+      <input id="article-06" type="radio" name="slider" class="sr-only peer/06">
+      <input id="article-07" type="radio" name="slider" class="sr-only peer/07">
 
-  .control-button-v3:hover{
-    background-color: #444444;
-  }
+{PROJECTS.map((project) => (
 
-  .control-button-v3 svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .controls-v3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
-    
-  </style>
-
-
-<div class="slider-container-v3 overflow-hidden relative">
-    <div class="slider-wrapper-v3 flex flex-col">
-    {PROJECTS.map((project) => (
-      <div class="slider-card-v3 w-full p-4">
-        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-          <div class="w-full md:w-1/2">
-            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-              <img alt={project.title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={project.image} />
-            </div>
-          </div>
-
-          <div class="w-full md:w-1/2 md:max-w-lg">
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      <div id="container-loop" class={project.section} >
+      
+          <label class="absolute inset-0" for={project.article_id}><span class="sr-only">Focus on the big picture</span></label>
+          <article class="bg-white p-6 rounded-lg shadow-2xl">
+              <header class="mb-12 transition duration-500 ease-in-out transform shadow-2xl shadow-gray-600 ">
+                  <img class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={project.image}  alt="Icon" />
+                  
+              </header>
+              <h3 class="text-2xl font-bold text-gray-800">
               {project.title}
             </h3>
-            <div class="flex flex-wrap mt-2">
-              <ul class="flex flex-row mb-2 gap-x-2">
+              <div class="text-sm leading-relaxed text-slate-500 space-y-4 mb-2">
+                  <p>
+                    {project.description}
+                  </p>
+              </div>
+              <ul class="flex flex-row mb-2 gap-x-2 pb-6 ">
                 {project.tags.map((tag) => (
                   <li>
                     <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
@@ -81,7 +44,6 @@ import { PROJECTS, TAGS } from './Projects.astro';
                 ))}
               </ul>
 
-              <div class="mt-2 text-gray-700 dark:text-gray-400">{project.description}</div>
               <footer class="flex items-end justify-start mt-4 gap-x-4">
                 {project.github && (
                   <LinkButton href={project.github}>
@@ -90,45 +52,9 @@ import { PROJECTS, TAGS } from './Projects.astro';
                   </LinkButton>
                 )}
               </footer>
-            </div>
-          </div>
-        </article>
+          </article>
       </div>
-    ))}
-    </div>
-    <div class="controls-v3">
-        <button class="prev-button-v3 control-button-v3">
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <div class="pagination-v3">
-          <!-- Los botones de paginación se generarán dinámicamente -->
-        </div>
-        <button class="next-button-v3 control-button-v3">
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>        </button>
-      </div>
-    </div>
+))}                
+  </div>
+</section>
 
-  
- 
-    <script>
-      import { initializeSlider } from './js/sliderLogicV3.js';
-    (function() {
-      document.addEventListener('DOMContentLoaded', () => {
-        const sliderContainer = 'slider-vertical-v3';
-        const nextButton = document.querySelector('.next-button-v3');
-        const prevButton = document.querySelector('.prev-button-v3');
-        const paginationContainer = document.querySelector('.pagination-v3');
-        const sliderWrapper = document.querySelector('.slider-wrapper-v3');
-        initializeSlider(nextButton, prevButton, paginationContainer, sliderWrapper, 2,3);
-      });})();
-    </script>
