@@ -5,6 +5,8 @@ import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import Java from "./icons/Java.astro"
+import { sequence } from "astro:middleware"
+
 
 
 export const TAGS = {
@@ -33,6 +35,27 @@ export const PROJECTS = [
     link: "https://svgl.vercel.app/",
     github: "https://github.com/pheralb/svgl",
     image: "/projects/snowy.jpg",
+    article_id: "article-01",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+         +" peer-focus-visible/01:[&_article]:ring"
+         +" peer-focus-visible/01:[&_article]:ring-indigo-300"
+         +" peer-checked/01:relative"
+         +" peer-checked/01:z-50"
+         +" peer-checked/01:translate-x-0"
+         +" peer-checked/01:scale-100"
+         +" peer-checked/01:[&>label]:pointer-events-none"
+         
+         +" peer-checked/02:-translate-x-20"
+         +" peer-checked/02:scale-[83.75%]"
+         +" peer-checked/02:z-40"
+
+         +" peer-checked/03:-translate-x-40"
+         +" peer-checked/03:z-30"
+
+         +" peer-checked/04:-translate-x-40"                    
+         +" peer-checked/04:opacity-0"
+
+         +" peer-checked/05:-translate-x-40",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
@@ -41,15 +64,62 @@ export const PROJECTS = [
     description: "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
     link: "https://adventjs.dev",
     image: "/projects/quirium (1).webp",
+    article_id: "article-02",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+         +" peer-focus-visible/02:[&_article]:ring"
+         +" peer-focus-visible/02:[&_article]:ring-indigo-300"
+         +"   peer-checked/01:translate-x-20"
+         +"   peer-checked/01:scale-[83.75%]"
+         +"   peer-checked/01:z-40"
+
+         +"   peer-checked/02:relative"
+         +"   peer-checked/02:z-50"
+         +"   peer-checked/02:translate-x-0"
+         +"   peer-checked/02:scale-100"
+         +"   peer-checked/02:[&>label]:pointer-events-none"
+
+         +"   peer-checked/03:-translate-x-20"
+         +"   peer-checked/03:scale-[83.75%]"
+         +"   peer-checked/03:z-40"
+
+         +"   peer-checked/04:-translate-x-40"
+         +"   peer-checked/04:z-30"
+
+         +"   peer-checked/05:-translate-x-40 "
+         +"   peer-checked/05:opacity-0"
+         ,
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    id: 4,
+    id: 3,
     title: "Proyecto  3",
     description: "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
     link: "https://svgl.vercel.app/",
     github: "https://github.com/pheralb/svgl",
     image: "/projects/snowy.jpg",
+    article_id: "article-03",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+        +"  peer-focus-visible/03:[&_article]:ring"
+        +"  peer-focus-visible/03:[&_article]:ring-indigo-300"
+        +"  peer-checked/01:translate-x-40"
+        +"  peer-checked/01:z-30"
+
+        +"  peer-checked/02:translate-x-20"
+        +"  peer-checked/02:scale-[83.75%]"
+        +"  peer-checked/02:z-40"
+
+        +"  peer-checked/03:relative"
+        +"  peer-checked/03:z-50"
+        +"  peer-checked/03:translate-x-0"
+        +"  peer-checked/03:scale-100"
+        +"  peer-checked/03:[&>label]:pointer-events-none"
+
+        +"  peer-checked/04:-translate-x-20"
+        +"  peer-checked/04:scale-[83.75%]"
+        +"  peer-checked/04:z-40"
+
+        +"  peer-checked/05:-translate-x-40"
+        +"  peer-checked/05:z-30",    
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
@@ -58,6 +128,37 @@ export const PROJECTS = [
     description: "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
     link: "https://adventjs.dev",
     image: "/projects/quirium (1).webp",
+    article_id: "article-04",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          +"  peer-focus-visible/04:[&_article]:ring"
+          +"  peer-focus-visible/04:[&_article]:ring-indigo-300"
++""
+          +"  peer-checked/01:translate-x-40 "
+          +"  peer-checked/01:opacity-0"
+          +"  "
+          +"  peer-checked/02:translate-x-40"
+          +"  peer-checked/02:z-30"
+          +"  "
+          +"  peer-checked/03:translate-x-20"
+          +"  peer-checked/03:scale-[83.75%]"
+          +"  peer-checked/03:z-40"
++""
+          +"  peer-checked/04:relative"
+          +"  peer-checked/04:z-50"
+          +"  peer-checked/04:translate-x-0"
+          +"  peer-checked/04:scale-100"
+          +"  peer-checked/04:[&>label]:pointer-events-none"
+          +""
+          +"  peer-checked/05:-translate-x-20"
+          +"  peer-checked/05:scale-[83.75%]"
+          +"  peer-checked/05:z-40"
+
+
+        +"  peer-checked/06:-translate-x-40"
+        +"  peer-checked/06:z-30"
+                  +"  peer-checked/07:translate-x-40 "
+          +"  peer-checked/07:opacity-0"
+    ,    
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
@@ -66,6 +167,107 @@ export const PROJECTS = [
     description: "Biblioteca de logos SVG de las marcas más populares. +10",
     link: "https://adventjs.dev",
     image: "/projects/snowy.jpg",
+    article_id: "article-05",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          +"  peer-focus-visible/05:[&_article]:ring"
+          +"  peer-focus-visible/05:[&_article]:ring-indigo-300"
+          +"  peer-checked/01:translate-x-40 "
+
+          +"  peer-checked/02:translate-x-40 "
+          +"  peer-checked/02:opacity-0"
+
+          +"  peer-checked/03:translate-x-40"
+          +"  peer-checked/03:z-30"
+
+          +"  peer-checked/04:translate-x-20"
+          +"  peer-checked/04:scale-[83.75%]"
+          +"  peer-checked/04:z-40"
+
+          +"  peer-checked/05:relative"
+          +"  peer-checked/05:z-50"
+          +"  peer-checked/05:translate-x-0"
+          +"  peer-checked/05:scale-100"
+          +"  peer-checked/05:[&>label]:pointer-events-none"
+
+          +"  peer-checked/06:-translate-x-20"
+        +"  peer-checked/06:scale-[83.75%]"
+        +"  peer-checked/06:z-40"
+
+        +"  peer-checked/07:-translate-x-40"
+        +"  peer-checked/07:z-30"
+    ,    
     tags: [TAGS.NEXT, TAGS.TAILWIND],
-  }
+  },
+  {
+    id: 6,
+    title: "Proyecto  6",
+    description: "Biblioteca de logos SVG de las marcas más populares. +10",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    article_id: "article-06",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          +"  peer-focus-visible/06:[&_article]:ring"
+          +"  peer-focus-visible/06:[&_article]:ring-indigo-300"
+          +"  peer-checked/01:translate-x-40 "
+          +"  peer-checked/02:translate-x-40 "
+
+
+          +"  peer-checked/03:translate-x-40"
+          +"  peer-checked/03:opacity-0"          
+
+          +"  peer-checked/04:translate-x-40"
+          +"  peer-checked/04:z-30"
+
+          +"  peer-checked/05:translate-x-20"
+          +"  peer-checked/05:scale-[83.75%]"
+          +"  peer-checked/05:z-40"
+
+          +"  peer-checked/06:relative"
+          +"  peer-checked/06:z-50"
+          +"  peer-checked/06:translate-x-0"
+          +"  peer-checked/06:scale-100"
+          +"  peer-checked/06:[&>label]:pointer-events-none"
+
+          +"  peer-checked/07:-translate-x-20"
+          +"  peer-checked/07:scale-[83.75%]"
+          +"  peer-checked/07:z-40"
+    ,    
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    id: 7,
+    title: "Proyecto  7",
+    description: "Biblioteca de logos SVG de las marcas más populares. +10",
+    link: "https://adventjs.dev",
+    image: "/projects/snowy.jpg",
+    article_id: "article-07",
+    section: " absolute inset-0 scale-[67.5%] z-20 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+          +"  peer-focus-visible/07:[&_article]:ring"
+          +"  peer-focus-visible/07:[&_article]:ring-indigo-300"
+          +"  peer-checked/01:translate-x-40 "
+
+          +"  peer-checked/02:translate-x-40 "
+
+          +"  peer-checked/03:translate-x-40"
+
+          +"  peer-checked/04:translate-x-40"
+             +"  peer-checked/04:opacity-0"
+
+
+          +"  peer-checked/05:translate-x-40"
+          +"  peer-checked/05:z-30"
+
+          +"  peer-checked/06:translate-x-20"
+          +"  peer-checked/06:scale-[83.75%]"
+          +"  peer-checked/06:z-40"
+
+          +"  peer-checked/07:relative"
+          +"  peer-checked/07:z-50"
+          +"  peer-checked/07:translate-x-0"
+          +"  peer-checked/07:scale-100"
+          +"  peer-checked/07:[&>label]:pointer-events-none"
+    ,    
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  
 ]
