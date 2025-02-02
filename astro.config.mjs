@@ -7,7 +7,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://AresDesigns.github.io',
-  base: '/github-pages',
+  base: '/Carrousel-vertical',
   integrations: [
     tailwind(), ,
 ]
