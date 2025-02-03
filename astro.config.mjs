@@ -8,6 +8,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://AresDesigns.github.io',  
   base: '/Carrousel-vertical',
+  publicDir: './public',
   integrations: [
     tailwind(), ,
 ]
