@@ -93,7 +93,7 @@
     const paginationContainer = document.querySelector('.pagination');
     let currentIndex = 0;
     const itemsPerPage = 3; // Número de elementos por página
-    const totalPages = Math.ceil((sliderWrapper.children.length / itemsPerPage)-1);
+    const totalPages = sliderWrapper ? Math.ceil((sliderWrapper.children.length / itemsPerPage) - 1) : 0;
 
     function updateSliderPosition() {
   const cards = document.querySelectorAll('.slider-card');
@@ -102,14 +102,15 @@
     if (index >= currentIndex * itemsPerPage && index < (currentIndex + 1) * itemsPerPage) {
       card.classList.add('active');
     }
-  });
+    });
+  }
 
       const paginationButtons = document.querySelectorAll('.pagination button');
       paginationButtons.forEach((button, index) => {
         button.classList.toggle('active', index === currentIndex);
       });
-    }
-
+    
+    if (nextButton) {
     nextButton.addEventListener('click', () => {
   if (currentIndex < totalPages - 1) {
     currentIndex++;
@@ -119,16 +120,19 @@
   updateSliderPosition();
   updateActiveButton();
 });
+    }
 
-prevButton.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = totalPages - 1;
-  }
-  updateSliderPosition();
-  updateActiveButton();
-});
+if (prevButton) {
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalPages - 1;
+    }
+    updateSliderPosition();
+    updateActiveButton();
+  });
+}
 
     function createPagination() {
         for (let i = 0; i < totalPages; i++) {
@@ -139,26 +143,30 @@ prevButton.addEventListener('click', () => {
       updateSliderPosition();
       updateActiveButton();
     });
-    paginationContainer.appendChild(button);
+    if (paginationContainer) {
+      paginationContainer.appendChild(button);
+    }
   }
   updateActiveButton();
 }
 
 
 function updateActiveButton() {
-  const buttons = paginationContainer.querySelectorAll('button');
-  buttons.forEach((button, index) => {
-    if (index === currentIndex) {
-      button.classList.add('bg-blue-500');
-      button.classList.remove('bg-white');
-    } else {
-      button.classList.remove('bg-blue-500');
-      button.classList.add('bg-white');
-    }
-  });
-}
+  if (paginationContainer) {
+    const buttons = paginationContainer.querySelectorAll('button');
+    buttons.forEach((button, index) => {
+      if (index === currentIndex) {
+        button.classList.add('bg-blue-500');
+        button.classList.remove('bg-white');
+      } else {
+        button.classList.remove('bg-blue-500');
+        button.classList.add('bg-white');
+      }
+    });
+  }
+};
 
     // Inicializamos la posición del slider y creamos la paginación
     updateSliderPosition();
     createPagination();
-  </script>
+</script>

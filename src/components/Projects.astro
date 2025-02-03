@@ -1,11 +1,7 @@
 ---
-import GitHub from "./icons/GH.astro"
 import NextJS from "./icons/NJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
-import Link from "./icons/Link.astro"
-import LinkButton from "./LinkButton.astro"
 import Java from "./icons/Java.astro"
-import { sequence } from "astro:middleware"
 
 
 
@@ -271,3 +267,25 @@ export const PROJECTS = [
   },
   
 ]
+
+/*
+Carta -3 : Debe mantener el valor de traducción de la Carta -2 
+            ( -translate-x-40) y desvanecerse ( opacity-0).
+Carta -2 : debe trasladarse a la izquierda ( -translate-x-40), 
+            tener un valor menor z-indexen comparación con la carta activa ( z-30).
+           En este caso, no es necesario escalar, ya que heredará el 
+           escalamiento mínimo establecido por scale-[67.5%].
+Tarjeta -1 : Debe trasladarse a la izquierda ( -translate-x-20), 
+              reducir su escala ( scale-[83.75%]) y 
+              tener un valor menor z-indexen comparación con la tarjeta activa ( z-40).
+Tarjeta activa
+
+mismos pasos pero hacia la derecha
+
+Tarjeta -1 : Debe traducirse a la derecha ( translate-x-20), reducir su escala ( scale-[83.75%]) y tener un valor menor z-indexen comparación con la tarjeta activa ( z-40).
+Carta +2 : debe traducirse a la derecha ( translate-x-40), tener un valor menor z-indexen comparación con la carta activa ( z-30). En este caso, no es necesario escalar, ya que heredará el escalamiento mínimo establecido por scale-[67.5%].
+Carta +3 : Debe mantener el valor de traducción de la Carta +2 ( translate-x-40) y desvanecerse ( opacity-0).
+
+
+
+*/
